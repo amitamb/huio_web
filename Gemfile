@@ -29,7 +29,7 @@ gem 'jquery-rails'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'pg'
-gem 'therubyracer', :platform=>:ruby
+# gem 'therubyracer', :platform=>:ruby
 group :development do
   gem 'better_errors'
   gem 'guard-bundler'
