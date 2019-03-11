@@ -44,6 +44,7 @@ group :development, :test do
   gem 'faker'
   gem 'rspec-rails'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'dotenv-rails'
 end
 group :test do
   gem 'database_cleaner'

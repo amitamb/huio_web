@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_22_230055) do
+ActiveRecord::Schema.define(version: 2019_03_11_230958) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,4 +43,18 @@ ActiveRecord::Schema.define(version: 2019_02_22_230055) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "watched_entries", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "netflix_title_id"
+    t.datetime "watched_at"
+    t.text "history_entry"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["history_entry"], name: "index_watched_entries_on_history_entry"
+    t.index ["netflix_title_id"], name: "index_watched_entries_on_netflix_title_id"
+    t.index ["user_id"], name: "index_watched_entries_on_user_id"
+  end
+
+  add_foreign_key "watched_entries", "netflix_titles"
+  add_foreign_key "watched_entries", "users"
 end

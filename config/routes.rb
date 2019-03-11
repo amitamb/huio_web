@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'history/index', as: :history
+  get 'history/show'
   # import_controller
   get 'import/index', as: :import
   post 'import/process_import', as: :process_import
