@@ -1,0 +1,4 @@
+# mnx.io server connect
+ssh root@198.62.109.163
+
+scp -r root@198.62.109.163:/root/output.json ./tmp/

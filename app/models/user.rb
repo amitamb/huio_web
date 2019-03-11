@@ -10,4 +10,8 @@ class User < ApplicationRecord
     end
   end
 
+  def add_to_history(netflix_title)
+    
+  end
+
 end

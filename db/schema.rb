@@ -10,10 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_23_211222) do
+ActiveRecord::Schema.define(version: 2019_02_22_230055) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "netflix_titles", force: :cascade do |t|
+    t.string "wikidata_id"
+    t.string "name"
+    t.text "description"
+    t.text "aliases"
+    t.string "fb_id"
+    t.string "imdb_id"
+    t.string "nf_id"
+    t.string "wiki_title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["description"], name: "index_netflix_titles_on_description"
+    t.index ["fb_id"], name: "index_netflix_titles_on_fb_id"
+    t.index ["imdb_id"], name: "index_netflix_titles_on_imdb_id"
+    t.index ["name"], name: "index_netflix_titles_on_name"
+    t.index ["nf_id"], name: "index_netflix_titles_on_nf_id"
+    t.index ["wiki_title"], name: "index_netflix_titles_on_wiki_title"
+    t.index ["wikidata_id"], name: "index_netflix_titles_on_wikidata_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"

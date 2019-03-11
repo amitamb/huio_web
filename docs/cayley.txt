@@ -1,0 +1,12 @@
+# test with provided data
+./cayley http -i ./data/30kmoviedata.nq.gz -d bolt --host=:642
+
+# sample queries
+// var n = g.V().Has("<name>", "Leonardo DiCaprio").In("</film/performance/actor>").Out("</film/performance/character>").All();
+// var n = g.V().Has("<name>", "Leonardo DiCaprio").In("</film/performance/actor>").In("</film/film/starring>").Out("<name>").All();
+var n = g.V("</en/titanic>").Out("</film/film/starring>").Out("</film/performance/actor>").Out("<name>").All();
+g.Emit(n);
+
+./cayley http -c ./data/cayley.yml -i data/freebase.nq.gz --init --alsologtostderr=true --dup
+
+./cayley http -c ./data/cayley.yml

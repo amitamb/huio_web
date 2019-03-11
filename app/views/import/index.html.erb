@@ -1,0 +1,9 @@
+<h1>Import from Netflix</h1>
+<%= form_tag process_import_path, {:multipart => true } do |f| %>
+  <div class="form-group">
+    <label for="file">File to Import</label>
+    <%= file_field_tag :file, class: "form-control-file" %>
+    <small id="fileHelp" class="form-text text-muted">We respect your privacy.</small>
+  </div>
+  <%= submit_tag "Import", class: "btn btn-primary" %>
+<% end %>
