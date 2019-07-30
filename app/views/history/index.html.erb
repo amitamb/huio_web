@@ -1,5 +1,5 @@
 <h3 class="mb-3">History</h3>
 
-<% current_user.watched_entries.each do |we| %>
+<% current_user.watched_entries.order("watched_at desc").each do |we| %>
   <%= render we %>
 <% end %>
